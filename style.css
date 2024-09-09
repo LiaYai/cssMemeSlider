@@ -4,3 +4,55 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  /* block-size: 100vh; */
+  justify-content: center;
+  align-items: center;
+  background-color: rebeccapurple;
+}
+
+.slider-wrapper {
+  inline-size: 80%;
+  overflow: hidden;
+}
+
+.images {
+  display: flex;
+  inline-size: 100%;
+}
+
+.images img {
+  inline-size: 100%;
+  block-size: 500px;
+  object-fit: cover;
+  transition: all 0.15s ease;
+}
+
+.images input {
+  display: none;
+}
+
+.pagination {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination label {
+  inline-size: 15px;
+  block-size: 15px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pagination label:hover {
+  background-color: white;
+}
+
+#mem1:checked ~ .mem1 {
+  margin-inline-start: 0;
+}
