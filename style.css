@@ -6,7 +6,6 @@
 
 body {
   display: flex;
-  /* block-size: 100vh; */
   justify-content: center;
   align-items: center;
   background-color: rebeccapurple;
@@ -20,17 +19,22 @@ body {
 .images {
   display: flex;
   inline-size: 100%;
+ 
 }
 
 .images img {
-  inline-size: 100%;
+  inline-size: 0;
   block-size: 500px;
-  object-fit: cover;
-  transition: all 0.15s ease;
+  transition: all 1s ease;
 }
 
 .images input {
   display: none;
+}
+
+.images span {
+  margin-top: 33em;
+  opacity: 0;
 }
 
 .pagination {
@@ -39,20 +43,26 @@ body {
   justify-content: center;
 }
 
+input:checked + * + span {
+  opacity: 1;
+  inline-size: 100%;
+  margin-inline-start: -30em;
+}
+
 .pagination label {
   inline-size: 15px;
   block-size: 15px;
   border-radius: 50%;
   border: 2px solid white;
-  margin: 5px;
+  padding: 5px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.3s ease;
 }
 
 .pagination label:hover {
   background-color: white;
 }
 
-#mem1:checked ~ .mem1 {
-  margin-inline-start: 0;
+input:checked + img {
+  inline-size: 100%;
 }
