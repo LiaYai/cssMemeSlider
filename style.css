@@ -5,6 +5,7 @@
   --bg-color: rebeccapurple;
   --text-color: rgb(35, 22, 38);
   --checked-color: transparent;
+  --active-color: rgb(212, 56, 191);
 }
 
 * {
@@ -77,6 +78,10 @@ body {
 .controls label:hover .circle {
   border-color: var(--hover-color);
   background-color: var(--hover-color);
+}
+
+.controls label:active .circle {
+  border-color: var(--active-color);
 }
 
 .text {
