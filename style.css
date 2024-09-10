@@ -1,3 +1,12 @@
+:root {
+  --hover-color: black;
+  --controls-color: white;
+  --slider-border-color: black;
+  --bg-color: rebeccapurple;
+  --text-color: white;
+  --checked-color: transparent;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,61 +17,107 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rebeccapurple;
+  background-color: var(--bg-color);
 }
 
 .slider-wrapper {
-  inline-size: 80%;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  inline-size: 70vw;
+  block-size: fit-content;
+  margin-block-start: 2em;
 }
 
 .images {
   display: flex;
+  aspect-ratio: 1;
   inline-size: 100%;
- 
+  overflow: hidden;
+  border: 2px solid var(--slider-border-color);
+  border-radius: 1em;
 }
 
 .images img {
   inline-size: 0;
-  block-size: 500px;
+  block-size: 100%;
   transition: all 1s ease;
 }
 
-.images input {
+.slider-wrapper input {
   display: none;
 }
-
-.images span {
-  margin-top: 33em;
-  opacity: 0;
+.wrapper {
+  margin-block-start: 2em;
 }
 
-.pagination {
-  margin: 20px;
+.controls {
   display: flex;
   justify-content: center;
 }
 
-input:checked + * + span {
-  opacity: 1;
-  inline-size: 100%;
-  margin-inline-start: -30em;
-}
-
-.pagination label {
-  inline-size: 15px;
-  block-size: 15px;
-  border-radius: 50%;
-  border: 2px solid white;
-  padding: 5px;
+.controls label {
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.pagination label:hover {
-  background-color: white;
+.controls label .circle {
+  inline-size: 1em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid var(--controls-color);
+  background-color: var(--controls-color);
+  margin: 0.5em;
 }
 
-input:checked + img {
+.controls label:hover .circle{
+  background-color: var(--hover-color);
+  border-color: var(--hover-color);
+}
+
+/* Изменение размера изображения, когда checked */
+#mem1:checked ~ .images #img1 {
   inline-size: 100%;
+}
+
+#mem2:checked ~ .images #img2 {
+  inline-size: 100%;
+}
+
+#mem3:checked ~ .images #img3 {
+  inline-size: 100%;
+}
+
+#mem4:checked ~ .images #img4 {
+  inline-size: 100%;
+}
+
+#mem5:checked ~ .images #img5 {
+  inline-size: 100%;
+}
+
+/* Изменение цвета кнопки, когда checked */
+#mem1:checked ~ .wrapper .controls .mem1 .circle{
+  background-color: var(--checked-color);
+} 
+
+#mem2:checked ~ .wrapper .controls .mem2 .circle{
+  background-color: var(--checked-color);
+} 
+
+#mem3:checked ~ .wrapper .controls .mem3 .circle{
+  background-color: var(--checked-color);
+} 
+
+#mem4:checked ~ .wrapper .controls .mem4 .circle{
+  background-color: var(--checked-color);
+} 
+
+#mem5:checked ~ .wrapper .controls .mem5 .circle{
+  background-color: var(--checked-color);
+} 
+
+@media (width <= 768px) {
+  .controls {
+    align-self: center;
+  }
 }
