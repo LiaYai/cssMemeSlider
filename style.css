@@ -3,50 +3,55 @@
   --controls-color: white;
   --slider-border-color: black;
   --bg-color: rebeccapurple;
-  --text-color: white;
+  --text-color: rgb(35, 22, 38);
   --checked-color: transparent;
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-block: 4em;
   background-color: var(--bg-color);
 }
 
 .slider-wrapper {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
   inline-size: 70vw;
   block-size: fit-content;
-  margin-block-start: 2em;
 }
 
 .images {
   display: flex;
-  aspect-ratio: 1;
-  inline-size: 100%;
-  overflow: hidden;
   border: 2px solid var(--slider-border-color);
   border-radius: 1em;
+  overflow: hidden;
+  aspect-ratio: 1;
+  inline-size: 100%;
 }
 
 .images img {
+  transition: inline-size 1s ease;
   inline-size: 0;
   block-size: 100%;
-  transition: all 1s ease;
 }
 
 .slider-wrapper input {
   display: none;
 }
+
 .wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   margin-block-start: 2em;
 }
 
@@ -56,22 +61,38 @@ body {
 }
 
 .controls label {
-  cursor: pointer;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .controls label .circle {
+  margin: 0.5em;
+  border: 2px solid var(--controls-color);
+  border-radius: 50%;
+  background-color: var(--controls-color);
   inline-size: 1em;
   aspect-ratio: 1;
-  border-radius: 50%;
-  border: 2px solid var(--controls-color);
-  background-color: var(--controls-color);
-  margin: 0.5em;
 }
 
-.controls label:hover .circle{
-  background-color: var(--hover-color);
+.controls label:hover .circle {
   border-color: var(--hover-color);
+  background-color: var(--hover-color);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: 0.5em;
+}
+
+.text span {
+  display: block;
+  order: 1;
+  opacity: 0;
+  color: var(--text-color);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.4rem;
 }
 
 /* Изменение размера изображения, когда checked */
@@ -96,28 +117,66 @@ body {
 }
 
 /* Изменение цвета кнопки, когда checked */
-#mem1:checked ~ .wrapper .controls .mem1 .circle{
+#mem1:checked ~ .wrapper .controls .mem1 .circle {
   background-color: var(--checked-color);
-} 
+}
 
-#mem2:checked ~ .wrapper .controls .mem2 .circle{
+#mem2:checked ~ .wrapper .controls .mem2 .circle {
   background-color: var(--checked-color);
-} 
+}
 
-#mem3:checked ~ .wrapper .controls .mem3 .circle{
+#mem3:checked ~ .wrapper .controls .mem3 .circle {
   background-color: var(--checked-color);
-} 
+}
 
-#mem4:checked ~ .wrapper .controls .mem4 .circle{
+#mem4:checked ~ .wrapper .controls .mem4 .circle {
   background-color: var(--checked-color);
-} 
+}
 
-#mem5:checked ~ .wrapper .controls .mem5 .circle{
+#mem5:checked ~ .wrapper .controls .mem5 .circle {
   background-color: var(--checked-color);
-} 
+}
+
+/* Появление текста, когда checked */
+#mem1:checked ~ .wrapper .text .text1 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#mem2:checked ~ .wrapper .text .text2 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#mem3:checked ~ .wrapper .text .text3 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#mem4:checked ~ .wrapper .text .text4 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#mem5:checked ~ .wrapper .text .text5 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
 
 @media (width <= 768px) {
+  .wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
   .controls {
     align-self: center;
+  }
+  .text {
+    margin-block-start: 1.5em;
   }
 }
