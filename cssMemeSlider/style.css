@@ -1,11 +1,11 @@
 :root {
-  --hover-color: black;
-  --controls-color: white;
-  --slider-border-color: black;
-  --bg-color: rebeccapurple;
-  --text-color: rgb(35, 22, 38);
+  --hover-color: #ffffff;
+  --controls-color: rgb(35, 121, 94);
+  --slider-border-color: rgb(34, 98, 89);
+  --bg-color: rgb(95, 203, 180);
+  --text-color: rgb(34, 98, 89);
   --checked-color: transparent;
-  --active-color: rgb(212, 56, 191);
+  --active-color: rgb(177, 32, 158);
 }
 
 * {
@@ -26,13 +26,13 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  inline-size: 70vw;
+  inline-size: min(60em, 60vw);
   block-size: fit-content;
 }
 
 .images {
   display: flex;
-  border: 2px solid var(--slider-border-color);
+  border: 0.2em solid var(--slider-border-color);
   border-radius: 1em;
   overflow: hidden;
   aspect-ratio: 1;
@@ -59,25 +59,27 @@ body {
 .controls {
   display: flex;
   justify-content: center;
+  block-size: fit-content;
 }
 
 .controls label {
   transition: all 0.3s ease;
   cursor: pointer;
+  padding: 0.7em;
 }
 
 .controls label .circle {
-  margin: 0.5em;
-  border: 2px solid var(--controls-color);
+  border: 0.2em solid var(--controls-color);
   border-radius: 50%;
   background-color: var(--controls-color);
-  inline-size: 1em;
+  inline-size: 1.5em;
   aspect-ratio: 1;
 }
 
 .controls label:hover .circle {
   border-color: var(--hover-color);
   background-color: var(--hover-color);
+  box-shadow: 0 0 0.5em var(--controls-color);
 }
 
 .controls label:active .circle {
