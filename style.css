@@ -1,9 +1,10 @@
+
 :root {
   --hover-color: #ffffff;
-  --controls-color: rgb(35, 121, 94);
-  --slider-border-color: rgb(34, 98, 89);
-  --bg-color: rgb(95, 203, 180);
-  --text-color: rgb(34, 98, 89);
+  --controls-color: rgb(41, 230, 170);
+  --slider-border-color: rgb(41, 230, 170);
+  --bg-color: rgb(17, 20, 20);
+  --text-color: rgb(226, 234, 233);
   --checked-color: transparent;
   --active-color: rgb(177, 32, 158);
 }
@@ -26,7 +27,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  inline-size: min(50em, 50vw);
+  inline-size: clamp(300px, 50vw, 500px);
   block-size: fit-content;
 }
 
@@ -37,6 +38,9 @@ body {
   overflow: hidden;
   aspect-ratio: 1;
   inline-size: 100%;
+  outline: 1px solid var(--slider-border-color);
+  outline-offset: -0.3em;
+  filter: brightness(0.9);
 }
 
 .images img {
@@ -72,7 +76,7 @@ body {
   border: 0.2em solid var(--controls-color);
   border-radius: 50%;
   background-color: var(--controls-color);
-  inline-size: 1.5em;
+  inline-size: 1em;
   aspect-ratio: 1;
 }
 
@@ -97,9 +101,10 @@ body {
   order: 1;
   opacity: 0;
   color: var(--text-color);
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-  font-size: 1.4rem;
+  font-family: Nunito, sans-serif;
+  font-weight: semibold;
+  font-size: 1.2rem;
+  line-height: 1;
 }
 
 /* Изменение размера изображения, когда checked */
@@ -185,5 +190,10 @@ body {
   }
   .text {
     margin-block-start: 1.5em;
+  }
+
+  .text span {
+    text-align: center;
+    line-height: 1.2;
   }
 }
