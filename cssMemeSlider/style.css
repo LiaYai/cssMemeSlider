@@ -1,0 +1,189 @@
+:root {
+  --hover-color: #ffffff;
+  --controls-color: rgb(35, 121, 94);
+  --slider-border-color: rgb(34, 98, 89);
+  --bg-color: rgb(95, 203, 180);
+  --text-color: rgb(34, 98, 89);
+  --checked-color: transparent;
+  --active-color: rgb(177, 32, 158);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 4em;
+  background-color: var(--bg-color);
+}
+
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  inline-size: min(50em, 50vw);
+  block-size: fit-content;
+}
+
+.images {
+  display: flex;
+  border: 0.2em solid var(--slider-border-color);
+  border-radius: 1em;
+  overflow: hidden;
+  aspect-ratio: 1;
+  inline-size: 100%;
+}
+
+.images img {
+  transition: inline-size 1s ease;
+  inline-size: 0;
+  block-size: 100%;
+}
+
+.slider-wrapper input {
+  display: none;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-block-start: 2em;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  block-size: fit-content;
+}
+
+.controls label {
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 0.7em;
+}
+
+.controls label .circle {
+  border: 0.2em solid var(--controls-color);
+  border-radius: 50%;
+  background-color: var(--controls-color);
+  inline-size: 1.5em;
+  aspect-ratio: 1;
+}
+
+.controls label:hover .circle {
+  border-color: var(--hover-color);
+  background-color: var(--hover-color);
+  box-shadow: 0 0 0.5em var(--controls-color);
+}
+
+.controls label:active .circle {
+  border-color: var(--active-color);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-block-start: 0.5em;
+}
+
+.text span {
+  display: block;
+  order: 1;
+  opacity: 0;
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+/* Изменение размера изображения, когда checked */
+#mem1:checked ~ .images #img1 {
+  inline-size: 100%;
+}
+
+#mem2:checked ~ .images #img2 {
+  inline-size: 100%;
+}
+
+#mem3:checked ~ .images #img3 {
+  inline-size: 100%;
+}
+
+#mem4:checked ~ .images #img4 {
+  inline-size: 100%;
+}
+
+#mem5:checked ~ .images #img5 {
+  inline-size: 100%;
+}
+
+/* Изменение цвета кнопки, когда checked */
+#mem1:checked ~ .wrapper .controls .mem1 .circle {
+  background-color: var(--checked-color);
+}
+
+#mem2:checked ~ .wrapper .controls .mem2 .circle {
+  background-color: var(--checked-color);
+}
+
+#mem3:checked ~ .wrapper .controls .mem3 .circle {
+  background-color: var(--checked-color);
+}
+
+#mem4:checked ~ .wrapper .controls .mem4 .circle {
+  background-color: var(--checked-color);
+}
+
+#mem5:checked ~ .wrapper .controls .mem5 .circle {
+  background-color: var(--checked-color);
+}
+
+/* Появление текста, когда checked */
+#mem1:checked ~ .wrapper .text .text1 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#mem2:checked ~ .wrapper .text .text2 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#mem3:checked ~ .wrapper .text .text3 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#mem4:checked ~ .wrapper .text .text4 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+#mem5:checked ~ .wrapper .text .text5 {
+  order: -1;
+  opacity: 1;
+  transition: opacity 1s ease;
+}
+
+@media (width <= 768px) {
+  .wrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .controls {
+    align-self: center;
+  }
+  .text {
+    margin-block-start: 1.5em;
+  }
+}
