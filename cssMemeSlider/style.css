@@ -26,7 +26,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
-  inline-size: min(60em, 60vw);
+  inline-size: min(50em, 50vw);
   block-size: fit-content;
 }
 
